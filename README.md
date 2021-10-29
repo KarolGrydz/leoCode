@@ -1,6 +1,7 @@
 # Leocode
 
 Simple search engine by name
+
 ![](https://github.com/KarolGrydz/leoCode/blob/master/leocode.gif)
 
 Notes:
