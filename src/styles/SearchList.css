@@ -1,0 +1,24 @@
+.root {
+  margin: auto;
+  width: 35vw;
+  padding-left: 90px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.root span {
+  margin-left: 4px;
+  color: grey;
+}
+
+li::marker {
+  color: grey;
+  font-size: 14px;
+}
+
+p {
+  font-weight: bold;
+}
