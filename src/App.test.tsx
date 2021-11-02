@@ -1,5 +1,4 @@
-import React from "react";
-import { render, screen, act, waitFor, cleanup } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import App from "./App";
 import { UserContextController } from "./context/UserContext";
 
@@ -13,22 +12,17 @@ beforeEach(() => {
 
 afterEach(cleanup);
 
-test("renders title users list", async () => {
-  const { getByText } = render(
-    <UserContextController>
-      <App />
-    </UserContextController>
-  );
-
-  // const linkElement = screen.getByText(/users list/i);
-  // const inputElement = screen.getAllByPlaceholderText(
-  //   /Search by user name.../i
-  // );
-
-  // screen.debug();
-
-  await act(() => {
-    screen.debug();
+describe("Before fetch data", () => {
+  test("renders title users list", () => {
+    const linkElement = screen.getByText(/users list/i);
+    expect(linkElement).toBeInTheDocument();
   });
-  // expect(inputElement).toBeInTheDocument();
+  test("find input element", () => {
+    const inputElement = screen.getByPlaceholderText(/Search by user name.../i);
+    expect(inputElement).toBeInTheDocument();
+  });
+  test("Loading div", () => {
+    const loadingElement = screen.getByText(/Loading.../i);
+    expect(loadingElement).toBeInTheDocument();
+  });
 });
