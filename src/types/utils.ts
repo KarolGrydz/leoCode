@@ -13,14 +13,14 @@ type companyData = {
 };
 
 export type UrlData = {
-  address: addressData;
-  company: companyData;
-  email: string;
+  address?: addressData;
+  company?: companyData;
+  email?: string;
   id: number;
   name: string;
-  phone: string;
+  phone?: string;
   username: string;
-  website: string;
+  website?: string;
 };
 
 export type UserAPIData = {

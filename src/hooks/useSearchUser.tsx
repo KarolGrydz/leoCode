@@ -11,7 +11,7 @@ export const useSearchUser = () => {
     const newData = data?.filter(({ name }) =>
       name.toUpperCase().includes(e.toUpperCase())
     );
-    if (handleUpdateState) handleUpdateState(newData);
+    handleUpdateState!(newData);
   };
 
   return { handleSearchUser };
