@@ -7,7 +7,7 @@ Simple search engine by name
 Notes:
 
 - styles are made for desktop only (1440px)
-- we could do it on props alone, without using context
+- we could do it on props alone, without using context (done in second branch)
 
 Possible things to add in the future:
 
