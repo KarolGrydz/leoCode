@@ -1,25 +1,22 @@
 import React from "react";
-import { useSearchUser } from "../hooks/useSearchUser";
-import { useGetUsers } from "../hooks/useGetUsers";
-import { UserContext } from "../context/UserContext";
+import { useSearchInput } from "../hooks/useSearchInput";
+import { SearchList } from "./SearchList";
 
 import "../styles/SearchInput.css";
+import { useGetUsers } from "../hooks/useGetUsers";
 
 export const SearchInput: React.FC = () => {
-  const { handleSearchUser } = useSearchUser();
-  const { handleUpdateState } = React.useContext(UserContext);
-  const { data } = useGetUsers();
+  const { users, handleSearch } = useSearchInput();
+  const { isPending } = useGetUsers();
 
-  React.useEffect(() => {
-    if (handleUpdateState) handleUpdateState(data);
-  }, [data]);
   return (
     <div>
       <input
         className="Input"
         placeholder="Search by user name..."
-        onChange={(e) => handleSearchUser(e.target.value)}
+        onChange={(e) => handleSearch(e.target.value)}
       />
+      {!isPending ? <SearchList users={users!} /> : <div>Loading...</div>}
     </div>
   );
 };

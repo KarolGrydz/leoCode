@@ -16,7 +16,7 @@ export type UrlData = {
   address?: addressData;
   company?: companyData;
   email?: string;
-  id: number;
+  id?: number;
   name: string;
   phone?: string;
   username: string;
@@ -26,4 +26,8 @@ export type UrlData = {
 export type UserAPIData = {
   state: UrlData[] | [];
   handleUpdateState?: (value: UrlData[]) => void;
+};
+
+export type SearchListProps = {
+  users: UrlData[] | [];
 };
